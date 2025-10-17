@@ -2,9 +2,20 @@ let bagitemsobjects = [];
 function onLoad()
 {
     loadBagitemsobject();
-    displayBagItems();
+  displayBagItems();
+  displaybagIcon();
 }
+function displaybagIcon() {
+  let bagitemcount = document.querySelector(".bag-item-count");
 
+  console.log(bagitems.length);
+  if (bagitems.length > 0) {
+    bagitemcount.style.display = "inline";
+    bagitemcount.innerText = bagitems.length;
+  } else {
+    bagitemcount.style.display = "none";
+  }
+}
 function loadBagitemsobject()
 {
     console.log(bagitems);
@@ -73,5 +84,4 @@ function removefrombag(itemid)
     });
     localStorage.setItem("bagitems", JSON.stringify(bagitems));
     onLoad();
-
 }
