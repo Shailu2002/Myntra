@@ -52,13 +52,14 @@ function displayBagsummary()
           <img class="img-no-item" src="./images/myntraitem.png" alt="no items!">
           <h3 class="heading-no-item">Hey,it feels so light!</h3>
           <p class="content-no-item">There is nothing in your bag.Let's add some items.</p>
+          <button class="btn-wishlist"><a href="./wishlist.html">Add items from wishlist</a></button>
          </div>`;
   }
 }
 function loadBagitemsobject()
 {
     console.log(bagitems);
- bagitemsobjects=bagitems.map((itemid) => {
+    bagitemsobjects=bagitems.map((itemid) => {
         for (let i = 0; i < items.length; i++)
         {
             if (items[i].id == itemid)
@@ -111,6 +112,7 @@ function genrateItemHtml(item)
 
 function removefrombag(itemid)
 {
+
     bagitems=bagitems.filter((removeid) =>
     {
         if (removeid!= itemid)
