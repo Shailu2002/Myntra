@@ -185,13 +185,78 @@ no-tems page
 .btn-wishlist {
     border: 1px solid rgb(214, 97, 97);
     padding: 10px;
-    margin-top:3vh;
+    margin-top: 3vh;
 }
 
 .btn-wishlist a {
     color: rgb(214, 97, 97);
     text-decoration: none;
     text-transform: uppercase;
-    font-weight:600;
-    font-size:small;
+    font-weight: 600;
+    font-size: small;
+}
+
+.card-info {
+    position: fixed;
+    width: 35vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    left: 40vw;
+    z-index: 100;
+    bottom: 40vh;
+    border-radius: 10px;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(192, 183, 183, 0.3);
+}
+
+.img-info {
+    height: 60px;
+    width: 100px;
+}
+
+.item-info {
+    display: flex;
+    font-size: small;
+    border-bottom: 1px solid rgb(203, 198, 198);
+}
+
+.btn-info {
+    display: flex;
+}
+
+.remove-btn {
+    border: none;
+    outline: none;
+    flex: 1;
+    border-right: 1px solid rgb(197, 196, 196);
+    background-color:inherit;
+    color: #535766;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.wishlist-btn {
+    border: none;
+    outline: none;
+    flex: 1;
+    background-color:inherit;
+    color: rgb(212, 100, 100);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.card-remove {
+
+    border: none;
+    background-color: inherit;
+    margin-left: auto;
+    /* Push to right */
+    align-self: flex-start;
+    /* Align at top of container */
+
 }

@@ -1,10 +1,19 @@
 let bagitemsobjects = [];
+let wishlist = [];
 function onLoad()
 {
   loadBagitemsobject();
   displayBagItems();
   displaybagIcon();
   displayBagsummary();
+  hidecard();
+ wishlist = JSON.parse(localStorage.getItem("wishlistitems")) || [];
+}
+onLoad();
+function hidecard()
+{
+   let cardin = document.querySelector(".card-info");
+   cardin.style.display = "none";
 }
 function displayBagsummary()
 {
@@ -70,7 +79,7 @@ function loadBagitemsobject()
  });
     console.log(bagitemsobjects);
 }
-onLoad();
+
 function displayBagItems()
 {
     let bagitemsCon = document.querySelector(".bag-items-container");
@@ -106,23 +115,55 @@ function genrateItemHtml(item)
                 <span class="delivery-details-days">${item.delivery_date}</span>
               </div>
             </div>
-             <div onclick="removefrombag(${item.id})" class="remove-from-cart">X</div>
+             <div onclick="showCard(${item.id})" class="remove-from-cart">X</div>
             </div>`;
 }
 
+function info_itemid(itemid)
+{
+  for (let i = 0; i < items.length;i++)
+  {
+    if (items[i].id == itemid)
+    {
+      return items[i].item_image;
+    }
+  }
+}
+function showCard(itemid)
+{
+  let cardin = document.querySelector(".card-info");
+  let info_item = info_itemid(itemid);
+  cardin.innerHTML = `<div class="item-info">
+           <div> <img class="img-info"  src=${info_item} alt=""></div>
+           <div>
+            <p style="font-weight: 600;">Move from Bag</p>
+            Are you sure you want to move this item from bag?</div>
+            <button onclick='hidecard()' class="card-remove">
+            x
+           </button>
+          </div>
+          <div class="btn-info">
+            <button onclick='removefrombag(${itemid})' class="remove-btn">Remove</button>
+            <button onclick='addtowishlist(${itemid})' class="wishlist-btn">Move to wishlist</button>
+          </div>`;
+  cardin.style.display = "flex";
+}
 function removefrombag(itemid)
 {
-
-    bagitems=bagitems.filter((removeid) =>
-    {
-        if (removeid!= itemid)
-        {
-            return true;
-        }
-        else {
-            return false;
-        }
-    });
+  bagitems = bagitems.filter((removeid) => {
+    if (removeid != itemid) {
+      return true;
+    } else {
+      return false;
+    }
+  });
   localStorage.setItem("bagitems", JSON.stringify(bagitems));
   onLoad();
+}
+
+function addtowishlist(itemid)
+{
+  wishlist.push(itemid);
+  localStorage.setItem("wishlistitems", JSON.stringify(wishlist));
+  removefrombag(itemid);
 }

@@ -1,0 +1,29 @@
+.wishlist_items {
+    display: flex;
+    margin:2% 10%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap:20px;
+
+}
+
+.wishlist_item {
+    display: flex;
+    flex-direction: column;
+    width:250px;
+}
+
+.img-wishlist {
+    width:100%;
+    height: 40vh;
+}
+
+.wishlist-items-count{
+    margin:2%;
+}
+
+.sad-emoji
+{
+    font-size:50px;
+    color: #eac42b;
+}
