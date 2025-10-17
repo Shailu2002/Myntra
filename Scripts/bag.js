@@ -5,17 +5,6 @@ function onLoad()
   displayBagItems();
   displaybagIcon();
 }
-function displaybagIcon() {
-  let bagitemcount = document.querySelector(".bag-item-count");
-
-  console.log(bagitems.length);
-  if (bagitems.length > 0) {
-    bagitemcount.style.display = "inline";
-    bagitemcount.innerText = bagitems.length;
-  } else {
-    bagitemcount.style.display = "none";
-  }
-}
 function loadBagitemsobject()
 {
     console.log(bagitems);
